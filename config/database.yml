@@ -12,7 +12,7 @@ development:
   database: seema_de_rails_demo_development
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,7 +25,7 @@ test:
   database: seema_de_rails_demo_test
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -35,5 +35,5 @@ production:
   database: seema_de_rails_demo_production
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/run/mysqld/mysqld.sock

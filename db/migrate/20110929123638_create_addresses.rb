@@ -1,7 +1,10 @@
 class CreateAddresses < ActiveRecord::Migration
   def self.up
     create_table :addresses do |t|
-
+      t.string :name
+      t.integer :phone
+      t.string :email
+      t.string :customer_type
       t.timestamps
     end
   end
