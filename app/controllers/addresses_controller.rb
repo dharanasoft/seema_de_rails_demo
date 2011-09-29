@@ -52,15 +52,19 @@ class AddressesController < ApplicationController
     if address.update_attributes(:phone => phone)
       render :json => phone, :layout => false
     else
-      render :json =>prev_phone , :notice => "Please enter valid phone number" 
+      render :json =>prev_phone 
     end
   end
   
   def set_address_email
     email = params[:value]
     address = Address.find(params[:id])
-    address.update_attribute(:email, email)
+    prev_email = address.email
+    if address.update_attributes(:email => email)
       render :json => email, :layout => false
+    else 
+      render :json => prev_email
+    end
   end
 
   def destroy
