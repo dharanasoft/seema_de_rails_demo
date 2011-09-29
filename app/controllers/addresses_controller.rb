@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  in_place_edit_for :address, :name
   def index
     @addresses = Address.all
   end
@@ -31,6 +32,35 @@ class AddressesController < ApplicationController
     else
       render :action => 'edit'
     end
+  end
+
+  def set_address_name
+    name = params[:value]
+    address = Address.find(params[:id])
+    prev_name = address.name
+    if address.update_attributes(:name => name)
+      render :json => name
+    else
+      render :json => prev_name
+    end
+  end
+  
+  def set_address_phone
+    phone = params[:value]
+    address = Address.find(params[:id])
+    prev_phone = address.phone
+    if address.update_attributes(:phone => phone)
+      render :json => phone, :layout => false
+    else
+      render :json =>prev_phone , :notice => "Please enter valid phone number" 
+    end
+  end
+  
+  def set_address_email
+    email = params[:value]
+    address = Address.find(params[:id])
+    address.update_attribute(:email, email)
+      render :json => email, :layout => false
   end
 
   def destroy

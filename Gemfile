@@ -8,6 +8,7 @@ gem 'rails', '3.0.10'
 gem 'mysql2', '~> 0.2.6'
 gem 'nifty-generators'
 gem 'simple_form'
+gem 'in_place_editing'
 gem 'pg'
 gem 'haml','>=3.1.0.alpha.147'
 

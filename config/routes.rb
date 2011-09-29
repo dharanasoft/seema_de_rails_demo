@@ -1,5 +1,9 @@
 SeemaDeRailsDemo::Application.routes.draw do
 
+  post 'addresses/:id/set_address_name' => "addresses#set_address_name"
+  post 'addresses/:id/set_address_phone' => "addresses#set_address_phone"
+  post 'addresses/:id' => "addresses#set_address_email"
+  post 'addresses/:id' => "addresses#set_address_customer_type"
   resources :addresses
 
   root :to => "addresses#index"

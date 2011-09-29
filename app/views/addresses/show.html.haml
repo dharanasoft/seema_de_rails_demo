@@ -1,8 +1,18 @@
 %p
   %strong Name:
-  = @address.name
+  = in_place_editor_field :address, 'name'
+  %br
+  %strong Phone:
+  = in_place_editor_field :address, 'phone'  
+  %br
+  %strong Email:
+  = in_place_editor_field :address, 'email'  
+  %br
+  %strong Customer Type:
+  = @address.customer_type
 %p
   = link_to "Edit", edit_address_path(@address)
   |
-  \#{link_to "Destroy", @address, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "Destroy", @address, :confirm => 'Are you sure?', :method => :delete} 
+  |
   \#{link_to "View All", addresses_path} 

@@ -1,6 +1,6 @@
 = simple_form_for @address do |f|
     = f.input :name
-    = f.input :phone
+    = f.input :phone, :type => :tel_field
     = f.input :email
     = f.input :customer_type, :as => :select, :collection => ["nice customer", "bad customer"], :default => "nice customer"
     = f.submit
