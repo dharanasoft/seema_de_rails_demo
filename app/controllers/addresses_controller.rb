@@ -2,7 +2,11 @@ class AddressesController < ApplicationController
   in_place_edit_for :address, :name
   
   def index
-    @addresses = Address.order("name").page(params[:page]).per(5)
+    if params[:search]
+      @addresses = Address.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(5)
+    else
+      @addresses = Address.order("name").page(params[:page]).per(5)
+    end
   end
 
   def show
@@ -73,4 +77,6 @@ class AddressesController < ApplicationController
     @address.destroy
     redirect_to addresses_url, :notice => "Successfully destroyed address."
   end
+
+  
 end
