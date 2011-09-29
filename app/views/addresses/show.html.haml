@@ -1,0 +1,8 @@
+%p
+  %strong Name:
+  = @address.name
+%p
+  = link_to "Edit", edit_address_path(@address)
+  |
+  \#{link_to "Destroy", @address, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", addresses_path} 
