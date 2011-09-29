@@ -9,7 +9,7 @@ gem 'mysql2', '~> 0.2.6'
 gem 'nifty-generators'
 gem 'simple_form'
 gem 'in_place_editing'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'pg'
 gem 'haml','>=3.1.0.alpha.147'
 

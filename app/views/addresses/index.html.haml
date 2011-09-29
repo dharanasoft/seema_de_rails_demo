@@ -4,6 +4,7 @@
     %th Name
     %th Phone
     %th Email
+  = paginate @addresses
   - for @address in @addresses
     %tr
       %td= in_place_editor_field :address, 'name' 

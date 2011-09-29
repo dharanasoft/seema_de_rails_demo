@@ -1,7 +1,8 @@
 class AddressesController < ApplicationController
   in_place_edit_for :address, :name
+  
   def index
-    @addresses = Address.all
+    @addresses = Address.order("name").page(params[:page]).per(5)
   end
 
   def show
