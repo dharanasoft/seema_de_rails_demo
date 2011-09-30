@@ -73,3 +73,15 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+.required{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.prepend-left a {
+  margin-left: 20px;`
+}
+
+.prepend-top td {
+  margin-top: 10px
+}

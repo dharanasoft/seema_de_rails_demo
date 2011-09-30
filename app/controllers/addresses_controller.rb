@@ -1,5 +1,7 @@
 class AddressesController < ApplicationController
-  in_place_edit_for :address, :name
+  in_place_edit_with_validation_for :address, :name
+  in_place_edit_with_validation_for :address, :phone
+  in_place_edit_with_validation_for :address, :email
   
   def index
     if params[:search]
@@ -38,40 +40,7 @@ class AddressesController < ApplicationController
       render :action => 'edit'
     end
   end
-
-  def set_address_name
-    name = params[:value]
-    address = Address.find(params[:id])
-    prev_name = address.name
-    if address.update_attributes(:name => name)
-      render :json => name
-    else
-      render :json => prev_name
-    end
-  end
   
-  def set_address_phone
-    phone = params[:value]
-    address = Address.find(params[:id])
-    prev_phone = address.phone
-    if address.update_attributes(:phone => phone)
-      render :json => phone, :layout => false
-    else
-      render :json =>prev_phone 
-    end
-  end
-  
-  def set_address_email
-    email = params[:value]
-    address = Address.find(params[:id])
-    prev_email = address.email
-    if address.update_attributes(:email => email)
-      render :json => email, :layout => false
-    else 
-      render :json => prev_email
-    end
-  end
-
   def destroy
     @address = Address.find(params[:id])
     @address.destroy

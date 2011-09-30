@@ -1,9 +1,8 @@
 SeemaDeRailsDemo::Application.routes.draw do
 
-  post 'addresses/:id/set_address_name' => "addresses#set_address_name"
-  post 'addresses/:id/set_address_phone' => "addresses#set_address_phone"
-  post 'addresses/:id' => "addresses#set_address_email"
-  post 'addresses/:id' => "addresses#set_address_customer_type"
+  match 'addresses/:id/set_address_name' => "addresses#set_address_name"
+  match 'addresses/:id/set_address_phone' => "addresses#set_address_phone"
+  match 'addresses/:id/set_address_email' => "addresses#set_address_email"
   resources :addresses
 
   root :to => "addresses#index"
